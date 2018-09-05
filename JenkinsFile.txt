@@ -1,0 +1,20 @@
+node {
+
+   stage('Source Code Extraction'){
+       
+           echo 'Source Code Extraction'
+           checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/demo']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/tsangwailok/icp.git']]]
+    
+        
+    }
+    stage('Maven Build'){
+        echo 'Maven Build'
+        withMaven(maven: 'M3') {
+            sh "mvn -e install"
+        }
+    }
+    stage('Docker Image Preparation'){
+        echo 'Docker Image Preparation'
+    
+    }
+}
