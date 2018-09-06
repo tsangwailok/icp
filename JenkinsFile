@@ -13,6 +13,12 @@ node {
             sh "mvn -e install"
         }
     }
+    stage('Maven deploy package'){
+        echo 'Maven Build'
+        withMaven(maven: 'M3') {
+            sh "mvn -e deploy"
+        }
+    }
     stage('Docker Image Preparation'){
         echo 'Docker Image Preparation'
         checkout scm
