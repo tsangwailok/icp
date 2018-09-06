@@ -16,7 +16,7 @@ node {
     stage('Maven deploy package'){
         echo 'Maven Build'
         withMaven(maven: 'M3') {
-            sh "mvn -e deploy"
+            sh "mvn -X deploy"
         }
     }
     stage('Docker Image Preparation'){
