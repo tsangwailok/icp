@@ -19,10 +19,10 @@ node {
             sh "mvn -f ./CustomerOrderServicesApp/pom.xml -X deploy"
         }
     }
-    stage('Docker Image Preparation'){
+    stage('Docker Image Build'){
         echo 'Docker Image Preparation'
-        checkout scm
-		def dockerfile = 'Dockerfile'
-		def customImage = docker.build("my-image:${env.BUILD_ID}", "-f ${dockerfile} ./dockerfiles") 
+		node ("slave_192_168_39_155") {
+			sh "docker build -t 'customer-order-demo:liberty'"
+		}
     }
 }
