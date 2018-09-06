@@ -16,6 +16,18 @@
         <module>./CustomerOrderServicesApp</module>
   </modules>
 
+    <distributionManagement>
+		<repository>
+			<id>nexus-release</id>
+			<name>Releases</name>
+			<url>http://192.168.39.156:31125/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://192.168.39.156:31125/repository/maven-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<repositories>
         <repository>
 			<id>CustomerOrderServices</id>
