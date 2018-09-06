@@ -20,7 +20,8 @@
         <repository>
 			<id>CustomerOrderServices</id>
 			<name>demo</name>
-			<url>http://192.168.39.156:31125/repository/maven-releases</url>
+			<!--url>http://192.168.39.156:31125/repository/maven-releases</url-->
+			<url>http://192.168.39.156:31125/repository/maven-snapshots/</url>
         </repository>
 	</repositories>
 
