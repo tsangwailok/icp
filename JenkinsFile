@@ -22,7 +22,7 @@ node {
     stage('Docker Image Build'){
         echo 'Docker Image Preparation'
 		node ("slave_192_168_39_155") {
-			sh "docker build -f 'Dockerfile' -t 'customer-order-demo:liberty'"
+			sh "docker build -f 'Dockerfile' -t 'customer-order-demo:liberty' ."
 		}
     }
 }
