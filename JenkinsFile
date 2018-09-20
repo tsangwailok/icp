@@ -22,7 +22,7 @@ node {
     stage('Docker Image Build'){
     	node ('slave_192_168_39_155') {
 		echo 'Docker Image Preparation'
-			sh "docker build --add-host=docker:192.168.39.155 -t 'customer-order-demo:liberty' ."
+			sh "docker build -t 'customer-order-demo:liberty' ."
 	}
     }
 }
