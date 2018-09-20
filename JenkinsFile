@@ -16,7 +16,7 @@ node {
     stage('Maven deploy package'){
         echo 'Maven Build'
         withMaven(maven: 'M3') {
-            sh "mvn -f ./CustomerOrderServicesApp/pom.xml -X deploy"
+            sh "mvn -f ./CustomerOrderServicesApp/pom.xml -X deploy -Dfile=CustomerOrderServicesApp.ear"
         }
     }
     stage('Docker Image Build'){
