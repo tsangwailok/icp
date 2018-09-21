@@ -10,7 +10,7 @@ node {
     stage('Maven Build'){
         echo 'Maven Build'
         withMaven(maven: 'M3') {
-            sh "mvn -e install"
+            sh "mvn install"
         }
     }
     stage('Maven deploy package'){
