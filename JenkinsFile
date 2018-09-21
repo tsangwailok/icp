@@ -1,4 +1,4 @@
-node {
+node ('slave_192_168_39_155') {
 
    stage('Source Code Extraction'){
        
