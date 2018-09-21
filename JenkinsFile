@@ -19,8 +19,13 @@ node {
             sh "mvn -f ./CustomerOrderServicesApp/pom.xml -X deploy -Dfile=CustomerOrderServicesApp.ear"
         }
     }
-    stage('Docker Image Build'){
-    	echo 'Docker Image Preparation'
-	sh "docker build -t 'customer-order-demo:liberty' ."
+    stage('Docker Image Preparation'){
+        echo 'Docker Image Preparation'
+        waitUntil{
+            docker.withRegistry('https://icptt.icp:8500', 'docker') {
+                def customImage = docker.build("customer-order-services-demo:${env.BUILD_ID}")
+                customImage.push()
+            }
+        }
     }
 }
