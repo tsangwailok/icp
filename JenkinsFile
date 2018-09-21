@@ -3,7 +3,7 @@ node {
    stage('Source Code Extraction'){
        
            echo 'Source Code Extraction'
-           checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/demo']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/tsangwailok/icp.git']]]
+           checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/demo']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', timeout: 1200]], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/tsangwailok/icp.git']]]
     
         
     }
