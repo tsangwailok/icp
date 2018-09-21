@@ -1,4 +1,4 @@
-node ('slave_192_168_39_155') {
+node {
 
    stage('Source Code Extraction'){
        
@@ -20,9 +20,7 @@ node ('slave_192_168_39_155') {
         }
     }
     stage('Docker Image Build'){
-    	node ('slave_192_168_39_155') {
-		echo 'Docker Image Preparation'
-			sh "docker build -t 'customer-order-demo:liberty' ."
-	}
+    	echo 'Docker Image Preparation'
+	sh "docker build -t 'customer-order-demo:liberty' ."
     }
 }
