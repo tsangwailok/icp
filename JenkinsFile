@@ -21,6 +21,7 @@ node {
     }
     stage('Docker Image Preparation'){
         echo 'Docker Image Preparation'
+        sh "whoami"
         waitUntil{
             docker.withRegistry('https://icptt.icp:8500', 'docker') {
                 def customImage = docker.build("customer-order-services-demo:${env.BUILD_ID}")
